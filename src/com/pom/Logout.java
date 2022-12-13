@@ -1,42 +1,31 @@
 package com.pom;
 
 public class Logout {
-// Same as Login page
+// Same as Order Page
 	
-	public static WebDriver driver;
+	@FindBy(xpath = "//a[@title='Pay by bank wire']")
+	private WebElement payment;
 
-	@FindBy(xpath = "//a[@title='Log in to your customer account']")
-	private WebElement signInBtn;
+	@FindBy(xpath = "//button[@class='button btn btn-default button-medium']")
+	private WebElement payment_confirm;
+	@FindBy(xpath = "//a[@title='Back to orders']")
+	private WebElement Back_to_Orders;
 
-	@FindBy(id = "email")
-	private WebElement emailId;
-
-	@FindBy(name = "passwd")
-	private WebElement password;
-
-	@FindBy(id = "SubmitLogin")
-	private WebElement LoginBtn;
-
-	public WebElement getSignInBtn() {
-		return signInBtn;
+	public WebElement getPayment() {
+		return payment;
 	}
 
-	public WebElement getEmailId() {
-		return emailId;
+	public WebElement getPayment_confirm() {
+		return payment_confirm;
 	}
 
-	public WebElement getPassword() {
-		return password;
+	public WebElement getBack_to_Orders() {
+		return Back_to_Orders;
 	}
 
-	public WebElement getLoginBtn() {
-		return LoginBtn;
-	}
-
-	public LoginPage(WebDriver driver2) {
+	public OrderPayment(WebDriver driver2) {
 		// TODO Auto-generated constructor stub
-		LoginPage.driver = driver2;
+		this.driver = driver2;
 		PageFactory.initElements(driver, this);
 
-	}
 }
